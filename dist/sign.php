@@ -12,27 +12,26 @@ class SIGN {
             exit();
         }
 
-        $name = 'tim';
-        $password = '240190tim';
-        // if(count($_POST) > 0){
-        //             $name = mysqli_real_escape_string($mysqli, trim($_POST["name"]));
-        //             $password = mysqli_real_escape_string($mysqli, trim($_POST["password"]));
-        // }else{return print_r('No varibel POST sign');}
+        // $name = 'tim';
+        // $password = '240190tim';
+        if(count($_POST) > 0){
+                    $name = mysqli_real_escape_string($mysqli, trim($_POST["name"]));
+                    $password = mysqli_real_escape_string($mysqli, trim($_POST["password"]));
+        }else{return print_r('No varibel POST sign');}
 
-        $result = $mysqli->query("SELECT * FROM users WHERE name='$name' AND password='$password'");
-        
-        $row = $result->fetch_assoc();
-        print_r($row);
-        print_r("<br>".$row['name']);
-        if ($name == $row['name'] || $password == $row['password']) {
+        $result = $mysqli->query("SELECT * FROM users WHERE name = '$name' AND password = '$password'");
 
-            
-            print_r("Your name is " .$row['name']. "<br>Your email is " .$row['mail']. "<br>Your password is " .$row['password']. "<br><h3>If you want to change:</h3 <br>
+        while($row = $result->fetch_assoc()){
+            if ($name == $row['name'] || $password == $row['password']) {
+
+            print_r(" <p>Your name is " .$row['name']. "</p><br><p value='".$row['mail']."'>Your email is <span id='checkMail'>".$row['mail']."</span></p><br><p>Your password is " .$row['password']. "</p><br><h3>If you want to change:</h3 <br>
                 ");
             
-        }else{
-            print_r("Variables are empty Sign");
-        }
+            }else{
+                print_r("Variables are empty Sign");
+            }
+        };
+        
         $mysqli->close();
     }
 

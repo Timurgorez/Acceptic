@@ -170,6 +170,10 @@ form{
 	visibility: visible;
 	transition: visibility 3s;
 }
-
+footer a{
+	font-size: 25px;
+	float: right;
+	padding: 5px;
+}
 
 @import "media"; // Всегда в конце

@@ -17,15 +17,18 @@ class DB {
 			 		$password = mysqli_real_escape_string($mysqli, trim($_POST["password"]));
 		}else{return print_r('No variable POST');}
 
-		$result = $mysqli->query("SELECT * FROM users");
-		$row = $result->fetch_assoc();
+		$result = $mysqli->query("SELECT * FROM users WHERE name = '$name' OR mail = '$mail'");
+		while($row = $result->fetch_assoc()){
+			if($row['name'] == $name){
+				return print_r('This name ' .$name. ' already exists in the database.');
+			}
+			if($row['mail'] == $mail){
+				return print_r('This email ' .$mail.' already exists in the database.');
+			}
+		}
+		
 
-		if($row['name'] == $name){
-			return print_r('This name ' .$name. ' already exists in the database.');
-		}
-		if($row['mail'] == $mail){
-			return print_r('This email ' .$mail.' already exists in the database.');
-		}
+		
 		/*  */
 		if ($name && $mail && $password) {
 		    $result = $mysqli->query("INSERT INTO users (name, mail, password)

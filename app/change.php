@@ -1,16 +1,11 @@
 ﻿<?php
 
-class CHANGE {
+include 'db.php';
 
 
 
-	public function changeUser(){
-		$mysqli = new mysqli("localhost", "Tim", "12345", "acceptic");
-		/* connection test */
-		if ($mysqli->connect_errno) {
-		    print_r("Wrong connection: %s\n", $mysqli->connect_error);
-		    exit();
-		}
+	function changeUser($mysqli){
+		
 		if(count($_POST) > 0){
 					$nameCh = mysqli_real_escape_string($mysqli, trim($_POST["nameCh"]));
 			 		$mailCh = mysqli_real_escape_string($mysqli, trim($_POST["mailCh"]));
@@ -19,11 +14,14 @@ class CHANGE {
 		}else{return print_r('No variable POST');}
 
 
-		if($row['name'] == $nameCh){
-			return print_r('This name ' .$nameCh. ' already exists in the database.');
-		}
-		if($row['mail'] == $mailCh){
-			return print_r('This email ' .$mailCh.' already exists in the database.');
+		$result = $mysqli->query("SELECT * FROM users WHERE name = '$nameCh' OR mail = '$mailCh'");
+		while($row = $result->fetch_assoc()){
+			if($row['name'] == $nameCh){
+				return print_r('This name ' .$nameCh. ' already exists in the database.');
+			}
+			if($row['mail'] == $mailCh){
+				return print_r('This email ' .$mailCh.' already exists in the database.');
+			}
 		}
 
 
@@ -44,10 +42,10 @@ class CHANGE {
 	}
 
 
-}
 
 
-$mysqli = CHANGE::changeUser();
+
+changeUser($mysqli);
 
 
 

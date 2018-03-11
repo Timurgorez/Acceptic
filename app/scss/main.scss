@@ -1,0 +1,175 @@
+@import "mixin";
+@import "fonts";
+@import "libs";
+@import "vars";
+
+
+body{
+	font-family: 'Open Sans',sans-serif;
+	color: $textcolor;
+}
+a, button{
+	border:none;
+	outline: none;
+}
+a:focus, button:focus {
+    outline: none; 
+}
+.g2{
+	//outline: 1px solid red;
+}
+.row{
+ 	margin-right: 0;
+}
+.header{
+	//background: url(../img/fon2.png) no-repeat 100% 6% #F3F3F3;
+	//background-size: cover;
+	background:#F3F3F3;
+	border-bottom: 1px solid #D8D8D8;
+}
+
+.line1{
+	min-height: 80px;
+}	
+.user-in{
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	margin-left: 10px;
+}
+.user-in a:hover{
+		text-decoration: none;	
+	}
+.user-in b{
+	font-size: 20px;
+	color:#2B353A;
+	padding: 8px;
+	a:hover{
+		text-decoration: none;	
+	}
+}
+.user-in:hover{
+	background: #F84440;
+	transition: background ease-out 1s;
+}
+
+
+.line2{
+	background: rgba(255, 255, 255, 0.8);
+	border-top: 1px solid #D8D8D8;
+	border-bottom: 1px solid #D8D8D8;
+}
+.topnav{
+	margin: 0 auto;
+	li{
+		padding-right: 1.5rem;
+	}
+}
+.topnav-link{
+		color: $textcolor;
+		padding-right: 2.5rem;
+    	padding-left: 1.5rem;
+    	border-bottom: 1px solid #FFF;
+}
+.topnav li a:hover{
+	border-bottom: 1px solid #F84440;
+	color: $textcolor;
+	transition: border-bottom ease-out 0.7s;
+}
+.setting{
+	position: relative;
+}
+#menuHelp{
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background-color: #F3F3F3;
+	z-index: 999;
+	border-radius: 4px;
+	li{
+		padding: 8px 16px;
+	}
+}
+#dropMenu{
+	position: absolute;
+	background-color: #f3f3f3;
+	z-index: 999;
+	border-radius: 4px;
+}
+
+.modal-dialog{
+	background-color: #fff;
+	border-radius: 8px;
+}
+
+.modal-footer{
+	border: none;
+}
+
+footer{
+	background-color: #D8D8D8;
+	padding: 30px;
+	min-height: 200px;
+}
+
+.content{
+	height: 700px;
+}
+.forms{
+	margin: 20px 0;
+}
+form{
+	border-radius: 8px;
+	padding: 15px;
+	border: 1px solid #D8D8D8;
+}
+
+.form-group input:focus{
+	box-shadow: 0 0 10px rgba(248,68,64,0.5);
+	border-color: #F84440;
+}
+
+.green{
+	border-color: green;
+}
+.red{
+	border-color: #F84440;
+}
+.form-group{
+	position: relative;
+	z-index: 10;
+	//outline: 1px solid red;
+}
+.sms{
+	position: absolute;
+	top: 10px;
+	left: 40%;
+	z-index: 9;
+	height: 25px;
+	//width: 100%;
+	background-color: #fff;
+	border: 1px solid #D8D8D8;
+}
+
+#contentCh{
+	padding: 20px 0;
+}
+
+.model{
+	color: red;
+	border: 1px solid #D8D8D8;
+	border-radius: 8px;
+}
+.btn:hover{
+	background-color: #F84440;
+	border-color: #F84440;
+}
+
+#change{
+	display: none;
+	padding: 20px 0;
+	visibility: visible;
+	transition: visibility 3s;
+}
+
+
+@import "media"; // Всегда в конце

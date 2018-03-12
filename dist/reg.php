@@ -1,16 +1,8 @@
 <?php
+include 'db.php';
 
-class DB {
-
-
-
-	public function regUser(){
-		$mysqli = new mysqli("localhost", "Tim", "12345", "acceptic");
-		/* connection test */
-		if ($mysqli->connect_errno) {
-		    print_r("Wrong connection: %s\n", $mysqli->connect_error);
-		    exit();
-		}
+	function regUser($mysqli){
+		
 		if(count($_POST) > 0){
 					$name = mysqli_real_escape_string($mysqli, trim($_POST["name"]));
 			 		$mail = mysqli_real_escape_string($mysqli, trim($_POST["mail"]));
@@ -41,11 +33,10 @@ class DB {
 	}
 
 
-}
 
 
-$mysqli = DB::regUser();
- // $mysqli = DB::signIn();
+regUser($mysqli);
+
 
 
 

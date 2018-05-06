@@ -1,14 +1,25 @@
 ﻿<?php
-	
-	$host = "localhost";
-	$admin = "Tim";
-	$pass = "12345";
-	$db_name = "acceptic";
 
-	$mysqli = new mysqli($host, $admin, $pass, $db_name);
-			/* connection test */
-	if ($mysqli->connect_errno) {
-		print_r("Wrong connection: %s\n", $mysqli->connect_error);
-		exit();
-	}
+class DB {
+    protected $host = "localhost";
+    protected $admin = "Tim";
+    protected $pass = "12345";
+    protected $db_name = "acceptic";
+    public $pdo;
 
+    public function __construct(){
+        try{
+            $pdo = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->admin, $this->pass);
+            return $this->pdo = $pdo;
+        }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function Validation ($var){
+        $var = htmlspecialchars($var, ENT_QUOTES);
+        $var = trim($var);
+        return $var;
+    }
+
+}

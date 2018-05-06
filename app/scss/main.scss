@@ -104,6 +104,9 @@ a:focus, button:focus {
 .modal-footer{
 	border: none;
 }
+.modal-title{
+	color: red;
+}
 
 footer{
 	background-color: #D8D8D8;
@@ -128,8 +131,12 @@ form{
 	border-color: #F84440;
 }
 
+//.form-group input{
+//	border-color: blue;
+//}
+
 .green{
-	border-color: green;
+	border-color: #90EE90;
 }
 .red{
 	border-color: #F84440;
